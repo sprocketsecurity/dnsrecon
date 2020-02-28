@@ -489,7 +489,8 @@ def brute_domain(res, dict, dom, filter=None, verbose=False, ignore_wildcard=Fal
     wildcard_ip = check_wildcard(res, dom)
     if wildcard_ip and not ignore_wildcard:
         print_status("Do you wish to continue? y/n")
-        continue_brt = str(sys.stdin.readline()[:-1])
+        # bail on wildcard detection
+        continue_brt = 'n'
     if re.search(r"y", continue_brt, re.I):
         # Check if Dictionary file exists
 
